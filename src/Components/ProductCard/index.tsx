@@ -6,12 +6,12 @@ import ProductImg from "../../Icons/In_box";
 import s from "./ProductCard.module.css";
 
 interface IProps {
-  onSet?: () => void;
+  fontSize?: number | string;
 }
 
-const ProductCard: FC<IProps> = () => {
+const ProductCard: FC<IProps> = ({ fontSize = 16 }) => {
   return (
-    <div className={s.product_wrapper}>
+    <div className={s.product_wrapper} style={{ fontSize }}>
       <div className={s.product_img}>
         <ProductImg />
       </div>
@@ -20,7 +20,8 @@ const ProductCard: FC<IProps> = () => {
         <div className={s.title}> Product name </div>
         <div className={s.description}> Product description </div>
       </div>
-      {/*<Button loading />*/}
+      <Button loading />
+      <Button small />
       <div className={s.price}>15$</div>
     </div>
   );
