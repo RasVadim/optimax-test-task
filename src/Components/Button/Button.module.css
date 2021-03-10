@@ -3,12 +3,14 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  height: 30px;
+  height: auto;
   min-width: 50px;
   font-size: 14px;
   border-radius: 5px;
   box-shadow: 0 0 8px 0 #d4d4d4;
   border: none;
+  color: #3f84ab;
+  padding: 10px;
 }
 
 .button:hover {
@@ -19,6 +21,7 @@
 .small {
   height: 15px;
   min-width: 15px;
+  width: 15px;
 }
 
 .loading {

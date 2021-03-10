@@ -28,6 +28,7 @@
 }
 
 .price {
+  text-align: end;
   margin-left: auto;
   padding: 15px;
 }

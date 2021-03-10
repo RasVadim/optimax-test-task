@@ -1,0 +1,35 @@
+.input{
+    padding: 10px;
+}
+
+label{
+    color: #3f84ab;
+}
+
+input{
+    height: 22px;
+    background-color: #f7f7f7;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+    display: block;
+    width: 100%;
+    border: 0;
+    color: #495964;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 8px;
+    transition: all .3s  !important;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+    box-shadow: 0 0 3px #3f84ab;
+}
+
+input:hover {
+    box-shadow: inset 0 0 3px #3f84ab;
+    border-radius: 6px;
+    outline: -webkit-focus-ring-color auto 0;
+}

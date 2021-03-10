@@ -1,0 +1,13 @@
+.counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.count_input{
+    padding: 5px;
+}
+
+.count_input input{
+    width: 10px;
+}

@@ -13,7 +13,7 @@ interface IProps {
   customClassName?: string;
 }
 
-const Button: FC<IProps> = ({
+const Index: FC<IProps> = ({
   onClick,
   txtBtn = "",
   isForm = false,
@@ -48,4 +48,4 @@ const Button: FC<IProps> = ({
     </button>
   );
 };
-export default Button;
+export default Index;

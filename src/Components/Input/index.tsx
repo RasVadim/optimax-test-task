@@ -5,7 +5,7 @@ import s from "./Input.module.css";
 
 interface IProps {
   label?: string;
-  name: string;
+  name?: string;
   error?: string;
   type?: string;
   disabled?: boolean;
@@ -27,7 +27,7 @@ const Input: FC<IProps> = ({
 }) => {
   return (
         <div
-          className={clsx(s.s_input, {
+          className={clsx(s.input, {
             [s.error]: error,
             [customClassName]: true,
           })}
