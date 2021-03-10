@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  margin-bottom: 70px;
+  box-shadow: 0 -4px 13px 0 #b5b5b5;
+}
+
+.wrap {
+  width: 1030px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.label {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #3f84ab;
+}
