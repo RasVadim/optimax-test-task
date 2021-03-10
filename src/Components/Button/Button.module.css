@@ -1,0 +1,11 @@
+.loading {
+  width: 19px;
+  height: 19px;
+  border: 3px solid #62ce8f;
+  position: relative;
+  border-right-color: #e3e3e3;
+  border-radius: 50%;
+  animation: loader-rotate 1s linear infinite;
+  box-sizing: border-box;
+  margin-left: 5px;
+}

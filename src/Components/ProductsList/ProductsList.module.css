@@ -1,0 +1,11 @@
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 30px 0 5px 10px;
+}
+
+.product_list {
+  padding: 0 0 15px 0;
+  margin: 0;
+  list-style-type: none;
+}

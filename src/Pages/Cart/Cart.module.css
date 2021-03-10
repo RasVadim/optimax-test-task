@@ -1,0 +1,35 @@
+.cart_wrapper {
+  width: 100%;
+}
+
+.cart_contents {
+  font-size: 24px;
+}
+
+.cart_header {
+  display: flex;
+  min-height: 30px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 8px 0 #d4d4d4;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.cart_items {
+  min-height: 200px;
+}
+
+.cart_total {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  min-height: 32px;
+  box-shadow: 0 0 8px 0 #d4d4d4;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.total_sum {
+  color: #3f84ab;
+}

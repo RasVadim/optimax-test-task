@@ -1,0 +1,33 @@
+.product_wrapper {
+  display: flex;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.product_wrapper:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+.product_img {
+  border-radius: 5px;
+  box-shadow: 0 0 3px 0 #d4d4d4;
+  background-color: white;
+}
+
+.info {
+  padding: 10px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.description {
+  font-size: 14px;
+}
+
+.price {
+  margin-left: auto;
+  padding: 10px;
+}
