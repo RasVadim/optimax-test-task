@@ -13,6 +13,15 @@
   padding: 10px;
 }
 
+.button:focus {
+  border: 0 solid white;
+  outline: none;
+}
+
+.button:active {
+   box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.4);
+ }
+
 .button:hover {
   background-color: #f7f7f7;
   cursor: pointer;
@@ -22,6 +31,27 @@
   height: 15px;
   min-width: 15px;
   width: 15px;
+}
+
+.red{
+  background-color: #dc5c41;
+  color: white;
+}
+
+.red:hover{
+  opacity: 0.8;
+  background-color: #dc5c41;
+}
+
+
+.green{
+  background-color: #418e24;
+  color: white;
+}
+
+.green:hover{
+  background-color: #418e24;
+  opacity: 0.8;
 }
 
 .loading {

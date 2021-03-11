@@ -8,10 +8,10 @@ import s from "./ProductCounter.module.css";
 
 interface IProps {
   onSet?: () => void;
-    quantity: number
+  quantity: number;
 }
 
-const ProductCounter: FC<IProps> = ({ onSet , quantity = 1}) => {
+const ProductCounter: FC<IProps> = ({ onSet, quantity = 1 }) => {
   return (
     <div className={s.counter}>
       <Button small>-</Button>

@@ -29,6 +29,10 @@
 
 .price {
   text-align: end;
-  margin-left: auto;
   padding: 15px;
+}
+
+.buttons{
+  margin-left: auto;
+  align-self: flex-end;
 }

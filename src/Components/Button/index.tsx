@@ -10,10 +10,11 @@ interface IProps {
   loading?: boolean;
   disabled?: boolean;
   small?: boolean;
+  color?: "red" | "green"
   customClassName?: string;
 }
 
-const Index: FC<IProps> = ({
+const Button: FC<IProps> = ({
   onClick,
   txtBtn = "",
   isForm = false,
@@ -21,12 +22,14 @@ const Index: FC<IProps> = ({
   disabled = false,
   small = false,
   customClassName = "",
+  color= "",
   children,
 }) => {
   return (
     <button
       className={clsx(s.button, {
         [s.small]: small,
+        [s[color]]: color,
         [customClassName]: true,
       })}
       type={isForm ? "submit" : "button"}
@@ -48,4 +51,4 @@ const Index: FC<IProps> = ({
     </button>
   );
 };
-export default Index;
+export default Button;

@@ -9,8 +9,6 @@ interface IProps {
   error?: string;
   type?: string;
   disabled?: boolean;
-  search?: boolean;
-  orange?: boolean;
   defaultValue?: string | number;
   placeholder?: string;
   customClassName?: string;
@@ -23,26 +21,28 @@ const Input: FC<IProps> = ({
   type = "text",
   placeholder,
   disabled = false,
+  defaultValue = "",
   customClassName = "",
 }) => {
   return (
-        <div
-          className={clsx(s.input, {
-            [s.error]: error,
-            [customClassName]: true,
-          })}
-        >
-          {label && <label>{label}</label>}
-          <div className={s.wrap}>
-            <input
-              type={type}
-              name={name}
-              disabled={disabled}
-              placeholder={placeholder}
-            />
-            {error && <span className={s.error_text}>{error}</span>}
-          </div>
-        </div>
+    <div
+      className={clsx(s.input, {
+        [s.error]: error,
+        [customClassName]: true,
+      })}
+    >
+      {label && <label>{label}</label>}
+      <div className={s.wrap}>
+        <input
+          type={type}
+          name={name}
+          disabled={disabled}
+          placeholder={placeholder}
+          defaultValue={defaultValue}
+        />
+        {error && <span className={s.error_text}>{error}</span>}
+      </div>
+    </div>
   );
 };
 
