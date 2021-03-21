@@ -5,9 +5,18 @@ import ProductsList from "../../Components/ProductsList";
 import AddNewProductForm from "../../Forms/AddNewProductForm";
 
 import s from "./Cart.module.css";
+import axios from "axios";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const response =
+        axios.get(`http://localhost:3000/products`)
+        .then((res) => console.log(res, "response"));
+    console.log(response, "response");
+  }, []);
+
   const products = [
     {
       id: "1",

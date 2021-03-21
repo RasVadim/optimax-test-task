@@ -19,8 +19,8 @@
 }
 
 .button:active {
-   box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.4);
- }
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
 
 .button:hover {
   background-color: #f7f7f7;
@@ -33,23 +33,22 @@
   width: 15px;
 }
 
-.red{
+.red {
   background-color: #dc5c41;
   color: white;
 }
 
-.red:hover{
+.red:hover {
   opacity: 0.8;
   background-color: #dc5c41;
 }
 
-
-.green{
+.green {
   background-color: #418e24;
   color: white;
 }
 
-.green:hover{
+.green:hover {
   background-color: #418e24;
   opacity: 0.8;
 }

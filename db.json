@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Iphone 8",
+      "price": 620,
+      "img": "https://img.mvideo.ru/Pdb/30030157b.jpg",
+      "quantity": 0
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy A51",
+      "price": 480,
+      "img": "https://img.mvideo.ru/Pdb/30047894b.jpg",
+      "quantity": 0
+    },
+    {
+      "id": 3,
+      "name": "Honor 30 Pro+",
+      "price": 740,
+      "img": "https://img.mvideo.ru/Pdb/30049878b.jpg",
+      "quantity": 0
+    },
+    {
+      "id": 5,
+      "name": "Xiaomi Mi 10T",
+      "price": 470,
+      "img": "https://img.mvideo.ru/Pdb/30054282b.jpg",
+      "quantity": 0
+    },
+    {
+      "id": 5,
+      "name": "ZTE Axon 10 Pro",
+      "price": 470,
+      "img": "https://img.mvideo.ru/Pdb/30045081b.jpg",
+      "quantity": 0
+    }
+  ]
+}

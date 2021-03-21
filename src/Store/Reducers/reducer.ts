@@ -1,11 +1,6 @@
-// import {
-//   SET_TO_CART,
-//   ADD_TO_CART,
-//   DELETE_FROM_CART,
-//   CHANGE_QUANTITY,
-//   IS_CART_LOADING,
-// } from "../Actions/actions";
-//
+import { actionKeys } from "../Actions/actions";
+import { Action, InitialState } from "./types";
+
 // export const initialState = {
 //   cartItems: [],
 //   cartLoading: false,
@@ -39,14 +34,21 @@
 //   }
 // }
 
-
-export const initialState = {
+export const initialState: InitialState = {
+  items: [],
   cartItems: [],
   cartLoading: false,
   total: 0,
 };
-export default function reducer(state = initialState, action = { type: "" }) {
+
+export default function reducer(state = initialState, action: Action) {
   switch (action.type) {
+    case actionKeys.ADD_TO_CART:
+      return {
+        ...state,
+        cartItems: [...state.cartItems, action.payload],
+      };
+
     default:
       return state;
   }

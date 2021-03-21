@@ -34,14 +34,14 @@ const ProductCard: FC<IProps> = ({
       <div className={s.info}>
         <div className={s.title}> {name} </div>
         <div className={s.description}> {description} </div>
-      </div >
-        <div className={s.buttons} >
-            {inCart ? (
-                <Button txtBtn={"Remove"} color={"red"}/>
-            ) : (
-                <Button txtBtn={"Add to cart"} color={"green"} />
-            )}
-        </div>
+      </div>
+      <div className={s.buttons}>
+        {inCart ? (
+          <Button txtBtn={"Remove"} color={"red"} />
+        ) : (
+          <Button txtBtn={"Add to cart"} color={"green"} />
+        )}
+      </div>
       <div className={s.price}>
         {price}$
         <ProductCounter quantity={quantity} />

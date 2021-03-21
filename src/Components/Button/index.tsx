@@ -10,7 +10,7 @@ interface IProps {
   loading?: boolean;
   disabled?: boolean;
   small?: boolean;
-  color?: "red" | "green"
+  color?: "red" | "green";
   customClassName?: string;
 }
 
@@ -22,7 +22,7 @@ const Button: FC<IProps> = ({
   disabled = false,
   small = false,
   customClassName = "",
-  color= "",
+  color = "",
   children,
 }) => {
   return (
