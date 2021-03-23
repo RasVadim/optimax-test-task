@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC, memo} from "react";
 import clsx from "clsx";
 
 import s from "./Button.module.css";
@@ -11,6 +11,7 @@ interface IProps {
   disabled?: boolean;
   small?: boolean;
   color?: "red" | "green";
+  width?: number | "auto";
   customClassName?: string;
 }
 
@@ -24,6 +25,7 @@ const Button: FC<IProps> = ({
   customClassName = "",
   color = "",
   children,
+  width = "auto",
 }) => {
   return (
     <button
@@ -32,6 +34,7 @@ const Button: FC<IProps> = ({
         [s[color]]: color,
         [customClassName]: true,
       })}
+      style={{ width }}
       type={isForm ? "submit" : "button"}
       onClick={onClick}
       disabled={disabled || loading}
@@ -51,4 +54,4 @@ const Button: FC<IProps> = ({
     </button>
   );
 };
-export default Button;
+export default memo(Button);

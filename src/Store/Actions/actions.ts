@@ -1,49 +1,39 @@
-export enum actionKeys {
-  SET_TO_CART = "SET_TO_CART",
-  SET_TO_RECOMMENDED = "SET_TO_RECOMMENDED",
+import { ProductsState, Action } from "../interfaces";
+import api from "../../utils/api";
+
+export enum actionTypes {
+  SET_PRODUCT_lIST = "SET_PRODUCT_lIST",
+  SET_PRODUCT_LOADING = "SET_PRODUCT_LOADING",
+  FETCH_PRODUCT_lIST = "FETCH_PRODUCT_lIST",
   ADD_TO_CART = "ADD_TO_CART",
   DELETE_FROM_CART = "DELETE_FROM_CART",
-  FETCH_CART = "FETCH_CART",
-  CHANGE_QUANTITY = "CHANGE_QUANTITY",
-  IS_CART_LOADING = "IS_CART_LOADING",
-  S_RECOMMENDED_LOADING = "IS_RECOMMENDED_LOADING",
 }
 
-export const fetchCart = () => ({
-  type: actionKeys.FETCH_CART,
+// export const setMainState = (payload: Partial<ProductsState>): Action => ({
+//   type: actionTypes.SET_MAIN_STATE,
+//   payload,
+// });
+
+export const fetchProductList = () => ({
+  type: actionTypes.FETCH_PRODUCT_lIST,
 });
 
-export const isCartLoading = (payload: boolean) => ({
-  type: actionKeys.IS_CART_LOADING,
-  payload,
+export const setProductList = (payload: any) => ({
+  type: actionTypes.SET_PRODUCT_lIST,
+  payload
 });
 
-export const isRecommendedLoading = (payload: boolean) => ({
-  type: actionKeys.S_RECOMMENDED_LOADING,
-  payload,
-});
-
-export const setToCart = (payload: any[]) => ({
-  type: actionKeys.SET_TO_CART,
-  payload,
-});
-
-export const setToRecommended = (payload: any[]) => ({
-  type: actionKeys.SET_TO_RECOMMENDED,
-  payload,
-});
-
-export const changeQuantity = (payload: any) => ({
-  type: actionKeys.CHANGE_QUANTITY,
-  payload,
+export const setProductLoading = (payload: any) => ({
+  type: actionTypes.SET_PRODUCT_LOADING,
+  payload
 });
 
 export const addToCart = (payload: any) => ({
-  type: actionKeys.ADD_TO_CART,
+  type: actionTypes.ADD_TO_CART,
   payload,
 });
 
 export const deleteFromCart = (payload: any) => ({
-  type: actionKeys.DELETE_FROM_CART,
+  type: actionTypes.DELETE_FROM_CART,
   payload,
 });

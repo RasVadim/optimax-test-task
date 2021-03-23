@@ -48,7 +48,7 @@ const AddNewProductForm: FC<InjectedFormProps<IProps>> = ({ handleSubmit }) => {
         />
       </div>
       <div className={s.button}>
-        <Button isForm>Add product</Button>
+        <Button isForm txtBtn={"Add product"}/>
       </div>
     </form>
   );

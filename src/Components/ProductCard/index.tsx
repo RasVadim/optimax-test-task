@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC, memo} from "react";
 
 import Button from "../Button";
 import ProductCounter from "../ProductCounter";
@@ -9,9 +9,10 @@ import s from "./ProductCard.module.css";
 interface IProps {
   fontSize?: number | string;
   id: string;
-  name: string;
+  title: string;
   price: number;
-  quantity: number;
+  img: string
+  quantity?: number;
   description?: string;
   inCart?: boolean;
 }
@@ -19,8 +20,9 @@ interface IProps {
 const ProductCard: FC<IProps> = ({
   fontSize = 16,
   id = "",
-  name = "",
+  title = "",
   price,
+  img= '',
   quantity = 1,
   description = "",
   inCart = false,
@@ -28,25 +30,25 @@ const ProductCard: FC<IProps> = ({
   return (
     <div className={s.product_wrapper} style={{ fontSize }}>
       <div className={s.product_img}>
-        <ProductImg />
+          {img ? <img src={img} style={{height: 75}} /> :<ProductImg/> }
       </div>
 
       <div className={s.info}>
-        <div className={s.title}> {name} </div>
+        <div className={s.title}> {title} </div>
         <div className={s.description}> {description} </div>
       </div>
       <div className={s.buttons}>
         {inCart ? (
-          <Button txtBtn={"Remove"} color={"red"} />
+          <Button txtBtn={"Remove"} color={"red"} small />
         ) : (
-          <Button txtBtn={"Add to cart"} color={"green"} />
+          <Button txtBtn={"Add to cart"} color={"green"} width={95} />
         )}
       </div>
       <div className={s.price}>
         {price}$
-        <ProductCounter quantity={quantity} />
+          {inCart && <ProductCounter quantity={quantity}/>}
       </div>
     </div>
   );
 };
-export default ProductCard;
+export default memo(ProductCard);

@@ -14,9 +14,9 @@ interface IProps {
 const ProductCounter: FC<IProps> = ({ onSet, quantity = 1 }) => {
   return (
     <div className={s.counter}>
-      <Button small>-</Button>
+      <Button small txtBtn={"-"} />
       <Input customClassName={s.count_input} defaultValue={quantity} />
-      <Button small>+</Button>
+      <Button small txtBtn={"+"} />
     </div>
   );
 };

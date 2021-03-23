@@ -1,0 +1,52 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 15px;
+}
+.wrap .loading {
+  display: flex;
+  z-index: 1;
+}
+.wrap .text {
+  color: #3f84ab;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-transform: uppercase;
+}
+.wrap .bounceball {
+  position: relative;
+  display: inline-block;
+  height: 37px;
+  width: 30px;
+}
+.wrap .bounceball:before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #3f84ab;
+  transform-origin: 50%;
+  animation: bounce 500ms alternate infinite ease;
+}
+
+@keyframes bounce {
+  0% {
+    top: 30px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: 15px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}

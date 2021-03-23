@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { Product } from "../../types/products";
 
+import { Product } from "../../Store/interfaces";
 import ProductCard from "../ProductCard";
 
 import s from "./ProductsList.module.css";

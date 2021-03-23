@@ -1,10 +1,15 @@
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import rootSaga from "./Saga/cart";
-import cartReducer from "./Reducers/reducer";
+import logger from "redux-logger";
+
+import rootSaga from "./Sagas/rootSaga";
+import rootReducer from "./Reducers/rootReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default createStore(cartReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware, logger));
 
 sagaMiddleware.run(rootSaga);
+
+export type RootState = ReturnType<typeof store.getState>;
+export default store;
