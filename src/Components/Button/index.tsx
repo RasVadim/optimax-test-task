@@ -1,4 +1,4 @@
-import React, {FC, memo} from "react";
+import React, { FC, memo } from "react";
 import clsx from "clsx";
 
 import s from "./Button.module.css";
@@ -6,7 +6,7 @@ import s from "./Button.module.css";
 interface IProps {
   isForm?: boolean;
   txtBtn?: string;
-  onClick?: () => void;
+  onClick?: (e: any) => void;
   loading?: boolean;
   disabled?: boolean;
   small?: boolean;

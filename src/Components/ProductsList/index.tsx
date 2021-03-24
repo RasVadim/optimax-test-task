@@ -1,15 +1,16 @@
 import React, { FC } from "react";
 
-import { Product } from "../../Store/interfaces";
+import { CartItem, Product } from "../../Store/interfaces";
 import ProductCard from "../ProductCard";
 
 import s from "./ProductsList.module.css";
 
 interface IProps {
-  prodacts?: Array<Product>;
+  prodacts?: Array<Product | CartItem>;
   inCart?: boolean;
   title?: string;
   fontSize?: number | string;
+  onButtonClick?: (e: CartItem | number ) => void
 }
 
 const ProductsList: FC<IProps> = ({
@@ -17,6 +18,7 @@ const ProductsList: FC<IProps> = ({
   fontSize,
   inCart = false,
   prodacts = [],
+  onButtonClick,
 }) => {
   return (
     <>
@@ -28,6 +30,7 @@ const ProductsList: FC<IProps> = ({
             {...product}
             key={product.id}
             inCart={inCart}
+            onButtonClick={onButtonClick}
           />
         ))}
       </ul>

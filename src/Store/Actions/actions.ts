@@ -1,39 +1,68 @@
-import { ProductsState, Action } from "../interfaces";
-import api from "../../utils/api";
+import {
+  SetProductsAction,
+  SetProductsLoadingAction,
+  SetCartAction,
+  SetCartLoadingAction,
+  AddToCartAction,
+  DeleteFromCartAction,
+  FetchCartAction,
+} from "../interfaces";
 
 export enum actionTypes {
   SET_PRODUCT_lIST = "SET_PRODUCT_lIST",
-  SET_PRODUCT_LOADING = "SET_PRODUCT_LOADING",
   FETCH_PRODUCT_lIST = "FETCH_PRODUCT_lIST",
+  SET_PRODUCT_LOADING = "SET_PRODUCT_LOADING",
+  SET_CART = "SET_CART",
+  FETCH_CART = "FETCH_CART",
+  SET_CART_LOADING = "SET_CART_LOADING",
   ADD_TO_CART = "ADD_TO_CART",
   DELETE_FROM_CART = "DELETE_FROM_CART",
 }
-
-// export const setMainState = (payload: Partial<ProductsState>): Action => ({
-//   type: actionTypes.SET_MAIN_STATE,
-//   payload,
-// });
 
 export const fetchProductList = () => ({
   type: actionTypes.FETCH_PRODUCT_lIST,
 });
 
-export const setProductList = (payload: any) => ({
+export const setProductList = (
+  payload: SetProductsAction["payload"]
+): SetProductsAction => ({
   type: actionTypes.SET_PRODUCT_lIST,
-  payload
+  payload,
 });
 
-export const setProductLoading = (payload: any) => ({
+export const setProductLoading = (
+  payload: SetProductsLoadingAction["payload"]
+): SetProductsLoadingAction => ({
   type: actionTypes.SET_PRODUCT_LOADING,
-  payload
+  payload,
 });
 
-export const addToCart = (payload: any) => ({
+export const fetchCart = (): FetchCartAction => ({
+  type: actionTypes.FETCH_CART,
+});
+
+export const setCart = (payload: SetCartAction["payload"]): SetCartAction => ({
+  type: actionTypes.SET_CART,
+  payload,
+});
+
+export const setCartLoading = (
+  payload: SetCartLoadingAction["payload"]
+): SetCartLoadingAction => ({
+  type: actionTypes.SET_CART_LOADING,
+  payload,
+});
+
+export const addToCart = (
+  payload: AddToCartAction["payload"]
+): AddToCartAction => ({
   type: actionTypes.ADD_TO_CART,
   payload,
 });
 
-export const deleteFromCart = (payload: any) => ({
+export const deleteFromCart = (
+  payload: DeleteFromCartAction["payload"]
+): DeleteFromCartAction => ({
   type: actionTypes.DELETE_FROM_CART,
   payload,
 });
