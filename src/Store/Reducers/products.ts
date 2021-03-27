@@ -1,14 +1,13 @@
 import { actionTypes } from "../Actions/actions";
 import { Action, ProductsState } from "../interfaces";
 
-const cart = localStorage.getItem("cart");
-
 export const productsState: ProductsState = {
   products: [],
-  productLoading: false,
-  cartLoading: false,
-  cart: cart ? JSON.parse(cart) : [],
-  cartSum: 0,
+  currentProductId: null,
+  loading: {
+    products: false,
+    addProduct: false,
+  },
 };
 
 const productsReducer = (
@@ -21,26 +20,21 @@ const productsReducer = (
         ...state,
         products: action.payload,
       };
-    case actionTypes.SET_PRODUCT_LOADING:
+    case actionTypes.SET_CURRENT_PRODUCT_ID:
       return {
         ...state,
-        productLoading: action.payload,
+        currentProductId: action.payload,
       };
-    case actionTypes.SET_CART:
+    case actionTypes.SET_PRODUCTS_LOADING:
       return {
         ...state,
-        cart: action.payload,
+        loading: { ...state.loading, products: action.payload },
       };
-    case actionTypes.SET_CART_LOADING:
+    case actionTypes.ADD_NEW_PRODUCT_LOADING:
       return {
         ...state,
-        cartLoading: action.payload,
+        loading: { ...state.loading, addProduct: action.payload },
       };
-    // case actionTypes.ADD_TO_CART:
-    //   return {
-    //     ...state,
-    //     // cart: [...state.cart, payload],
-    //   };
 
     default:
       return state;

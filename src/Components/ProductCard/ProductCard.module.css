@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.more_margin {
+  margin: 10px 0;
+}
+
 .product_img {
   border-radius: 5px;
   box-shadow: 0 0 3px 0 #d4d4d4;
@@ -29,10 +33,15 @@
 
 .price {
   text-align: end;
-  padding: 15px;
+  padding: 3px 15px;
 }
 
 .buttons {
   margin-left: auto;
   margin-top: 5px;
+}
+
+.products_sum {
+  font-size: 14px;
+  color: #418e24;
 }

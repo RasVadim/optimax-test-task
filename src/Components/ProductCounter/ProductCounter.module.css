@@ -6,9 +6,11 @@
 
 .count_input {
   padding: 5px;
+  margin: 0 !important;
 }
 
 .count_input input {
-  width: 10px;
+  width: 14px;
   font-size: 12px !important;
+  text-align: center;
 }

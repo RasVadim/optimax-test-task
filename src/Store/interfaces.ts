@@ -2,18 +2,35 @@ import { actionTypes } from "./Actions/actions";
 
 export type Action =
   | SetProductsAction
-  | SetProductsLoadingAction
+  | SetCurrentProductIdAction
   | SetCartAction
+  | SetProductsLoadingAction
+  | AddNewProductLoadingAction
   | SetCartLoadingAction
-  | FetchProductsAction
-  | FetchCartAction;
+  | AddToCartLoadingAction
+  | DeleteFromCartLoadingAction
+  | ChangeQuantityLoadingAction
+  | TotalSumLoadingAction;
 
 export interface ProductsState {
   products: Product[];
-  productLoading: boolean;
+  currentProductId: number | null;
+  loading: {
+    products: boolean;
+    addProduct: boolean;
+  };
+}
+
+export interface CartState {
   cart: CartItem[];
-  cartLoading: boolean;
   cartSum: number;
+  loading: {
+    cart: boolean;
+    addItemCart: boolean;
+    deleteItemCart: boolean;
+    quantity: boolean;
+    total: boolean;
+  };
 }
 
 export interface Product {
@@ -39,9 +56,9 @@ export interface SetProductsAction {
   payload: Product[];
 }
 
-export interface SetProductsLoadingAction {
-  type: actionTypes.SET_PRODUCT_LOADING;
-  payload: boolean;
+export interface SetCurrentProductIdAction {
+  type: actionTypes.SET_CURRENT_PRODUCT_ID;
+  payload: number;
 }
 
 export interface SetCartAction {
@@ -49,8 +66,38 @@ export interface SetCartAction {
   payload: CartItem[];
 }
 
+export interface SetProductsLoadingAction {
+  type: actionTypes.SET_PRODUCTS_LOADING;
+  payload: boolean;
+}
+
 export interface SetCartLoadingAction {
   type: actionTypes.SET_CART_LOADING;
+  payload: boolean;
+}
+
+export interface AddToCartLoadingAction {
+  type: actionTypes.ADD_TO_CART_LOADING;
+  payload: boolean;
+}
+
+export interface DeleteFromCartLoadingAction {
+  type: actionTypes.DELETE_FROM_CART_LOADING;
+  payload: boolean;
+}
+
+export interface ChangeQuantityLoadingAction {
+  type: actionTypes.CHANGE_QUANTITY_LOADING;
+  payload: boolean;
+}
+
+export interface AddNewProductLoadingAction {
+  type: actionTypes.ADD_NEW_PRODUCT_LOADING;
+  payload: boolean;
+}
+
+export interface TotalSumLoadingAction {
+  type: actionTypes.TOTAL_SUM_LOADING;
   payload: boolean;
 }
 
@@ -63,6 +110,11 @@ export interface FetchCartAction {
   type: actionTypes.FETCH_CART;
 }
 
+export interface AddNewProductAction {
+  type: actionTypes.ADD_NEW_PRODUCT;
+  payload: Partial<Product>;
+}
+
 export interface AddToCartAction {
   type: actionTypes.ADD_TO_CART;
   payload: CartItem;
@@ -71,4 +123,9 @@ export interface AddToCartAction {
 export interface DeleteFromCartAction {
   type: actionTypes.DELETE_FROM_CART;
   payload: number;
+}
+
+export interface ChangeQuantityAction {
+  type: actionTypes.CHANGE_QUANTITY;
+  payload: Partial<CartItem>;
 }

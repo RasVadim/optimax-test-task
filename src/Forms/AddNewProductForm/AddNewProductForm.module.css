@@ -9,6 +9,10 @@
   box-shadow: 0 0 8px 0 #d4d4d4;
 }
 
+.button {
+  margin-left: 10px;
+}
+
 @media (max-width: 800px) {
   .new_product_form {
     flex-direction: column;

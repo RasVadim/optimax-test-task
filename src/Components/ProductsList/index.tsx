@@ -2,32 +2,38 @@ import React, { FC } from "react";
 
 import { CartItem, Product } from "../../Store/interfaces";
 import ProductCard from "../ProductCard";
+import Preloader from "../Preloader";
 
 import s from "./ProductsList.module.css";
 
 interface IProps {
-  prodacts?: Array<Product | CartItem>;
+  products?: Array<Product | CartItem>;
   inCart?: boolean;
   title?: string;
   fontSize?: number | string;
-  onButtonClick?: (e: CartItem | number ) => void
+  onButtonClick?: (e: CartItem | number) => void;
+  loading: boolean;
 }
 
 const ProductsList: FC<IProps> = ({
   title = "",
   fontSize,
   inCart = false,
-  prodacts = [],
+  products = [],
   onButtonClick,
+  loading = false,
 }) => {
+  if (loading) {
+    return <Preloader />;
+  }
   return (
     <>
       {title && <div className={s.title}>{title}</div>}
       <ul className={s.product_list}>
-        {prodacts.map((product) => (
+        {products.map((product) => (
           <ProductCard
             fontSize={fontSize}
-            {...product}
+            product={product}
             key={product.id}
             inCart={inCart}
             onButtonClick={onButtonClick}

@@ -2,6 +2,7 @@ import React, { FC, memo } from "react";
 import clsx from "clsx";
 
 import s from "./Button.module.css";
+import Preloader from "../Preloader";
 
 interface IProps {
   isForm?: boolean;
@@ -12,6 +13,7 @@ interface IProps {
   small?: boolean;
   color?: "red" | "green";
   width?: number | "auto";
+  height?: number | "auto";
   customClassName?: string;
 }
 
@@ -26,6 +28,7 @@ const Button: FC<IProps> = ({
   color = "",
   children,
   width = "auto",
+  height = "auto",
 }) => {
   return (
     <button
@@ -34,17 +37,13 @@ const Button: FC<IProps> = ({
         [s[color]]: color,
         [customClassName]: true,
       })}
-      style={{ width }}
+      style={{ width, height }}
       type={isForm ? "submit" : "button"}
       onClick={onClick}
       disabled={disabled || loading}
     >
       {loading ? (
-        small ? (
-          "..."
-        ) : (
-          <div className={s.loading} />
-        )
+        <Preloader small size={small ? 15 : 19} />
       ) : (
         <>
           {children && <div className={s.icon}>{children}</div>}

@@ -4,7 +4,7 @@
   margin: auto;
   padding: 15px;
 }
-.wrap .loading {
+.wrap .bounce_loading {
   display: flex;
   z-index: 1;
 }
@@ -48,5 +48,25 @@
   }
   100% {
     top: 0;
+  }
+}
+
+.loading {
+  border: 3px solid #62ce8f;
+  position: relative;
+  border-right-color: #e3e3e3;
+  border-radius: 50%;
+  animation: loader-rotate 1s linear infinite;
+  box-sizing: border-box;
+  align-self: center;
+  justify-self: center;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -1,64 +1,89 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { DecoratedFormProps } from "redux-form";
 
-import { RootState } from "../../Store/store";
 import {
-  fetchProductList,
+  addNewProduct,
+  addToCart,
+  deleteFromCart,
   fetchCart,
-  addToCart, deleteFromCart,
+  fetchProductList,
 } from "../../Store/Actions/actions";
+import {getCartState, getCartTotalSum, getProductsState} from "../../Store/Selectors/selectors";
 
-import { CartItem } from "../../Store/interfaces";
+import { CartItem, Product } from "../../Store/interfaces";
 import AddNewProductForm from "../../Forms/AddNewProductForm";
 import ProductsList from "../../Components/ProductsList";
 import Preloader from "../../Components/Preloader";
 
 import s from "./Cart.module.css";
-import {OnAddToCart, OnDeleteFromCart} from "./types";
 
 const ShoppingCart = () => {
-  const { products, productLoading, cart, cartLoading } = useSelector(
-    (state: RootState) => state.Products
-  );
   const dispatch = useDispatch();
+  const { products, loading } = useSelector(
+      getProductsState
+  );
+  const { cart, loading: cartLoading } = useSelector(
+      getCartState
+  );
+  const totalSum = useSelector(getCartTotalSum
+  );
+  const totalLoading =
+    cartLoading.total || cartLoading.cart || cartLoading.quantity;
 
   useEffect(() => {
     dispatch(fetchProductList());
     dispatch(fetchCart());
   }, []);
 
-  const onAddToCart = (cartItem: CartItem) => dispatch(addToCart(cartItem));
-  const onDeleteFromCart = (cartItemId : number) => dispatch(deleteFromCart(cartItemId));
+  const onDeleteFromCart = (cartItemId: CartItem | number) =>
+    typeof cartItemId === "number" && dispatch(deleteFromCart(cartItemId));
+  const onAddToCart = (cartItem: CartItem | number) =>
+    typeof cartItem !== "number" && dispatch(addToCart(cartItem));
 
-  // @ts-ignore
+  // ---any--- can't to use "Dispatch" type, because (Redux-form) props.reset()-function-type
+  // return void Instead of AnyAction for "Dispatch" from Redux Types
+  const onAddNewProduct = (
+    product: Partial<Product>,
+    dispatch: any,
+    props: DecoratedFormProps
+  ) => {
+    dispatch(addNewProduct(product));
+    dispatch(props?.reset?.());
+  };
+
   return (
     <div className={s.cart_wrapper}>
       <div className={s.cart_contents}>
         <div className={s.cart_header}>
           <label> Shopping Cart </label>
         </div>
-        {cartLoading ? (
-          <Preloader />
-        ) : (
-            // @ts-ignore
-          <ProductsList fontSize={20} prodacts={cart} inCart onButtonClick={onDeleteFromCart}/>
-        )}
+        <ProductsList
+          fontSize={20}
+          products={cart}
+          inCart
+          onButtonClick={onDeleteFromCart}
+          loading={!cart.length && cartLoading.cart}
+        />
         <div className={s.cart_total}>
           <div>total:</div>
-          <div className={s.total_sum}>50$</div>
+          {totalLoading ? (
+            <Preloader small />
+          ) : (
+            <div className={s.total_sum}>{`${totalSum}$`}</div>
+          )}
         </div>
       </div>
-      <AddNewProductForm />
-      {productLoading ? (
-        <Preloader />
-      ) : (
-        <ProductsList
-          title={"Recommended Products"}
-          prodacts={products}
-            // @ts-ignore
-          onButtonClick={onAddToCart}
-        />
-      )}
+      <AddNewProductForm
+        onSubmit={onAddNewProduct}
+        loading={loading.addProduct}
+      />
+      <ProductsList
+        title={"Recommended Products"}
+        products={products}
+        onButtonClick={onAddToCart}
+        loading={!products.length && loading.products}
+      />
     </div>
   );
 };

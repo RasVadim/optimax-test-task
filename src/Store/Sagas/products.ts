@@ -1,31 +1,14 @@
-import { put, takeLatest, all, call, StrictEffect } from "redux-saga/effects";
+import { call, put, StrictEffect, takeLatest } from "redux-saga/effects";
 import {
   actionTypes,
-  setProductLoading,
-  fetchCart,
+  addNewProductLoading,
+  fetchProductList,
   setProductList,
-  setCartLoading,
-  setCart,
+  setProductLoading,
 } from "../Actions/actions";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import api from "../../utils/api";
-import {Action, AddToCartAction, CartItem, DeleteFromCartAction} from "../interfaces";
-
-// function* getCartItems() {
-//   yield put(isCartLoading(true));
-//
-//   // @ts-ignore
-//   const response = yield axios
-//     .get(`../../fake_server/products.json`)
-//     .then((res) => res);
-//   console.log(response);
-//   if (response.status === 200) {
-//     yield put(isCartLoading(false));
-//     yield put(setToCart(response.data.items));
-//   } else {
-//     console.error("Cart Items request error");
-//   }
-// }
+import { AddNewProductAction } from "../interfaces";
 
 //workers
 function* getProductList() {
@@ -43,51 +26,28 @@ function* getProductList() {
   }
 }
 
-function* getCart() {
+function* addNewProduct(action: AddNewProductAction) {
   try {
-    yield put(setCartLoading(true));
+    yield put(addNewProductLoading(true));
 
     const response: AxiosResponse = yield call(() =>
-      api.get(`/cart${process.env.REACT_APP_SERVER_FORMAT}`)
+      api.post(
+        `/products${process.env.REACT_APP_SERVER_FORMAT}`,
+        action.payload
+      )
     );
-    yield put(setCart(response.data));
+    if (response.data) {
+      yield put(fetchProductList());
+    }
   } catch (e) {
     console.error(e.message);
   } finally {
-    yield put(setCartLoading(false));
-  }
-}
-
-function* addToCart(action: AddToCartAction) {
-  try {
-    const response: AxiosResponse = yield call(() =>
-      api.post(`/cart${process.env.REACT_APP_SERVER_FORMAT}`, action.payload)
-    );
-    if (response.data) {
-      yield put(fetchCart());
-    }
-  } catch (e) {
-    console.error(e.message);
-  }
-}
-
-function* deleteFromCart(action: DeleteFromCartAction) {
-  try {
-    const response: AxiosResponse = yield call(() =>
-        api.delete(`/cart${process.env.REACT_APP_SERVER_FORMAT}/${action.payload}`)
-    );
-    if (response.data) {
-      yield put(fetchCart());
-    }
-  } catch (e) {
-    console.error(e.message);
+    yield put(addNewProductLoading(false));
   }
 }
 
 //watchers
-export default function* actionWatcher(): Generator<StrictEffect> {
+export default function* productsActionWatcher(): Generator<StrictEffect> {
   yield takeLatest(actionTypes.FETCH_PRODUCT_lIST, getProductList);
-  yield takeLatest(actionTypes.FETCH_CART, getCart);
-  yield takeLatest(actionTypes.ADD_TO_CART, addToCart);
-  yield takeLatest(actionTypes.DELETE_FROM_CART, deleteFromCart);
+  yield takeLatest(actionTypes.ADD_NEW_PRODUCT, addNewProduct);
 }
