@@ -13,7 +13,7 @@ import {
   checkInCartProduct,
   getCartState,
   getCounterValueById,
-  getCurrentProduct
+  getCurrentProduct,
 } from "../../Store/Selectors/selectors";
 import ProductCounter from "../ProductCounter";
 import Button from "../Button";
@@ -45,14 +45,10 @@ const ProductCard: FC<IProps> = ({
 
   const dispatch = useDispatch();
   const { loading } = useSelector(getCartState);
-  const isCurrentProduct = useSelector(
-      getCurrentProduct
-  ) === id;
-  const isAlreadyInCart = useSelector(checkInCartProduct(id)
-  );
+  const isCurrentProduct = useSelector(getCurrentProduct) === id;
+  const isAlreadyInCart = useSelector(checkInCartProduct(id));
 
-  const count = useSelector(getCounterValueById(String(id))
-  );
+  const count = useSelector(getCounterValueById(String(id)));
 
   const debounceChangeQuantity = useCallback(
     debounce((count) => {
@@ -131,7 +127,7 @@ const ProductCard: FC<IProps> = ({
         )}
       </div>
       <div className={s.price}>
-        {price}$
+        ${price}
         {inCart && (
           <>
             <ProductCounter
@@ -140,9 +136,9 @@ const ProductCard: FC<IProps> = ({
               loading={loading.quantity}
             />
             {count > 1 && (
-              <div className={s.products_sum}>{`x${count} = ${
+              <div className={s.products_sum}>{`x${count} = $${
                 count * price
-              }$ `}</div>
+              }`}</div>
             )}
           </>
         )}

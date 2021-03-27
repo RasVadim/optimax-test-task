@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import {Field, reduxForm, InjectedFormProps, Normalizer} from "redux-form";
+import { Field, reduxForm, InjectedFormProps, Normalizer } from "redux-form";
 
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
@@ -7,12 +7,13 @@ import Button from "../../Components/Button";
 import s from "./AddNewProductForm.module.css";
 import { Product } from "../../Store/interfaces";
 import {
-    maxLength,
-    maxValue,
-    minLength, minValue,
-    number,
-    required,
-    url,
+  maxLength,
+  maxValue,
+  minLength,
+  minValue,
+  number,
+  required,
+  url,
 } from "../validators";
 
 interface IProps {

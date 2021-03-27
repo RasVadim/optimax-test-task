@@ -9,7 +9,11 @@ import {
   fetchCart,
   fetchProductList,
 } from "../../Store/Actions/actions";
-import {getCartState, getCartTotalSum, getProductsState} from "../../Store/Selectors/selectors";
+import {
+  getCartState,
+  getCartTotalSum,
+  getProductsState,
+} from "../../Store/Selectors/selectors";
 
 import { CartItem, Product } from "../../Store/interfaces";
 import AddNewProductForm from "../../Forms/AddNewProductForm";
@@ -20,14 +24,9 @@ import s from "./Cart.module.css";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
-  const { products, loading } = useSelector(
-      getProductsState
-  );
-  const { cart, loading: cartLoading } = useSelector(
-      getCartState
-  );
-  const totalSum = useSelector(getCartTotalSum
-  );
+  const { products, loading } = useSelector(getProductsState);
+  const { cart, loading: cartLoading } = useSelector(getCartState);
+  const totalSum = useSelector(getCartTotalSum);
   const totalLoading =
     cartLoading.total || cartLoading.cart || cartLoading.quantity;
 
@@ -70,7 +69,7 @@ const ShoppingCart = () => {
           {totalLoading ? (
             <Preloader small />
           ) : (
-            <div className={s.total_sum}>{`${totalSum}$`}</div>
+            <div className={s.total_sum}>{`$${totalSum}`}</div>
           )}
         </div>
       </div>

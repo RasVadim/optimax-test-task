@@ -1,16 +1,16 @@
-import React, {FC, memo, useEffect} from "react";
-import {Field, InjectedFormProps, Normalizer, reduxForm} from "redux-form";
-import {useDispatch, useSelector} from "react-redux";
+import React, { FC, memo, useEffect } from "react";
+import { Field, InjectedFormProps, Normalizer, reduxForm } from "redux-form";
+import { useDispatch, useSelector } from "react-redux";
 
-import {deleteFromCart} from "../../Store/Actions/actions";
-import {getCounterValueById} from "../../Store/Selectors/selectors";
+import { deleteFromCart } from "../../Store/Actions/actions";
+import { getCounterValueById } from "../../Store/Selectors/selectors";
 // import {moreLess, number} from "../../Forms/validators";
 
 import Button from "../Button";
 import Input from "../Input";
 
 import s from "./ProductCounter.module.css";
-import {lessThan, number} from "../../Forms/validators";
+import { lessThan, number } from "../../Forms/validators";
 
 const fieldId: unique symbol = Symbol();
 
@@ -33,15 +33,13 @@ const ProductCounter: FC<InjectedFormProps<counterType, IProps> & IProps> = ({
 }) => {
   const dispatch = useDispatch();
   const counterId = String(productId);
-  const count = useSelector(
-      getCounterValueById(counterId)
-  );
+  const count = useSelector(getCounterValueById(counterId));
 
   useEffect(() => {
     change(counterId, quantity || 1);
   }, [quantity]);
 
-  const increaseQuantity = () =>  +count < 99 && change(counterId, +count + 1);
+  const increaseQuantity = () => +count < 99 && change(counterId, +count + 1);
   const reduceQuantity = () =>
     count <= 1
       ? dispatch(deleteFromCart(productId))
@@ -64,7 +62,7 @@ const ProductCounter: FC<InjectedFormProps<counterType, IProps> & IProps> = ({
           customClassName={s.count_input}
           disabled={loading}
           height="auto"
-          normalize={ lessThan( 100)}
+          normalize={lessThan(100)}
         />
       </form>
       <Button

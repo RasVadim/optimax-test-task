@@ -18,5 +18,8 @@ export const url: Validator = (value) =>
     : undefined;
 
 // Normalizers
-export const lessThan = (val: number): Normalizer => (value, previousValue, allValues) =>
-    parseFloat(value) < val ? value : previousValue
+export const lessThan = (val: number): Normalizer => (
+  value,
+  previousValue,
+  allValues
+) => (parseFloat(value) < val ? value : previousValue);
