@@ -51,27 +51,11 @@
   ],
   "cart": [
     {
-      "id": 2,
-      "title": "Samsung Galaxy A51",
-      "description": "Lorem Ipsum is simply dummy tex",
-      "price": 480,
-      "img": "https://img.mvideo.ru/Pdb/30047894b.jpg",
-      "quantity": 2
-    },
-    {
-      "id": 1,
-      "title": "Iphone 8",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem I",
-      "price": 620,
-      "img": "https://img.mvideo.ru/Pdb/30030157b.jpg",
-      "quantity": 1
-    },
-    {
-      "id": 5,
-      "title": "ZTE Axon 10 Pro",
-      "description": "",
+      "id": 4,
+      "title": "Xiaomi Mi 10T",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting",
       "price": 470,
-      "img": "https://img.mvideo.ru/Pdb/30045081b.jpg",
+      "img": "https://img.mvideo.ru/Pdb/30054282b.jpg",
       "quantity": 1
     }
   ]

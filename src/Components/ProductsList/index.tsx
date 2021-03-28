@@ -12,7 +12,7 @@ interface IProps {
   title?: string;
   fontSize?: number | string;
   onButtonClick?: (e: CartItem | number) => void;
-  loading: boolean;
+  loading?: boolean;
 }
 
 const ProductsList: FC<IProps> = ({
@@ -30,15 +30,21 @@ const ProductsList: FC<IProps> = ({
     <>
       {title && <div className={s.title}>{title}</div>}
       <ul className={s.product_list}>
-        {products.map((product) => (
-          <ProductCard
-            fontSize={fontSize}
-            product={product}
-            key={product.id}
-            inCart={inCart}
-            onButtonClick={onButtonClick}
-          />
-        ))}
+        {products.length > 0 ? (
+          products.map((product) => (
+            <ProductCard
+              fontSize={fontSize}
+              product={product}
+              key={product.id}
+              inCart={inCart}
+              onButtonClick={onButtonClick}
+            />
+          ))
+        ) : (
+          <div className={s.empty_list}>
+            {inCart ? "Cart is empty" : "Products are missing"}
+          </div>
+        )}
       </ul>
     </>
   );

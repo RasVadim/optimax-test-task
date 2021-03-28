@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DecoratedFormProps } from "redux-form";
 
@@ -21,6 +21,7 @@ import ProductsList from "../../Components/ProductsList";
 import Preloader from "../../Components/Preloader";
 
 import s from "./Cart.module.css";
+import ProductCounter from "../../Components/ProductCounter";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();

@@ -39,8 +39,8 @@ const ProductCounter: FC<InjectedFormProps<counterType, IProps> & IProps> = ({
     change(counterId, quantity || 1);
   }, [quantity]);
 
-  const increaseQuantity = () => +count < 99 && change(counterId, +count + 1);
-  const reduceQuantity = () =>
+  const incrementQuantity = () => +count < 99 && change(counterId, +count + 1);
+  const decrementQuantity = () =>
     count <= 1
       ? dispatch(deleteFromCart(productId))
       : change(counterId, +count - 1);
@@ -51,7 +51,7 @@ const ProductCounter: FC<InjectedFormProps<counterType, IProps> & IProps> = ({
         small
         width={25}
         txtBtn={"-"}
-        onClick={reduceQuantity}
+        onClick={decrementQuantity}
         loading={loading}
       />
       <form onSubmit={handleSubmit}>
@@ -69,7 +69,7 @@ const ProductCounter: FC<InjectedFormProps<counterType, IProps> & IProps> = ({
         small
         width={25}
         txtBtn={"+"}
-        onClick={increaseQuantity}
+        onClick={incrementQuantity}
         loading={loading}
       />
     </div>
