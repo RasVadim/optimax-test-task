@@ -1,38 +1,38 @@
 [
   {
     "id": 1,
-    "name": "Iphone 8",
+    "title": "Iphone 8",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem I",
     "price": 620,
-    "img": "https://img.mvideo.ru/Pdb/30030157b.jpg",
-    "quantity": 0
+    "img": "https://img.mvideo.ru/Pdb/30030157b.jpg"
   },
   {
     "id": 2,
-    "name": "Samsung Galaxy A51",
+    "title": "Samsung Galaxy A51",
+    "description": "Lorem Ipsum is simply dummy tex",
     "price": 480,
-    "img": "https://img.mvideo.ru/Pdb/30047894b.jpg",
-    "quantity": 0
+    "img": "https://img.mvideo.ru/Pdb/30047894b.jpg"
   },
   {
     "id": 3,
-    "name": "Honor 30 Pro+",
+    "title": "Honor 30 Pro+",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust",
     "price": 740,
-    "img": "https://img.mvideo.ru/Pdb/30049878b.jpg",
-    "quantity": 0
+    "img": "https://img.mvideo.ru/Pdb/30049878b.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Xiaomi Mi 10T",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting",
+    "price": 470,
+    "img": "https://img.mvideo.ru/Pdb/30054282b.jpg"
   },
   {
     "id": 5,
-    "name": "Xiaomi Mi 10T",
+    "title": "ZTE Axon 10 Pro",
+    "description": "",
     "price": 470,
-    "img": "https://img.mvideo.ru/Pdb/30054282b.jpg",
-    "quantity": 0
-  },
-  {
-    "id": 5,
-    "name": "ZTE Axon 10 Pro",
-    "price": 470,
-    "img": "https://img.mvideo.ru/Pdb/30045081b.jpg",
-    "quantity": 0
+    "img": "https://img.mvideo.ru/Pdb/30045081b.jpg"
   },
   {
     "id": 6,
@@ -40,5 +40,11 @@
     "description": "Lorem Ipsum is simply dummy text of the ",
     "price": 970,
     "img": ""
+  },
+  {
+    "title": "Iphone 10",
+    "description": "Lorem Ipsum",
+    "price": "840",
+    "id": 7
   }
 ]

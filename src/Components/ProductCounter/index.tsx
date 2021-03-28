@@ -1,16 +1,15 @@
 import React, { FC, memo, useEffect } from "react";
-import { Field, InjectedFormProps, Normalizer, reduxForm } from "redux-form";
+import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import { useDispatch, useSelector } from "react-redux";
 
 import { deleteFromCart } from "../../Store/Actions/actions";
 import { getCounterValueById } from "../../Store/Selectors/selectors";
-// import {moreLess, number} from "../../Forms/validators";
+import { lessThan } from "../../Forms/validators";
 
 import Button from "../Button";
 import Input from "../Input";
 
 import s from "./ProductCounter.module.css";
-import { lessThan, number } from "../../Forms/validators";
 
 const fieldId: unique symbol = Symbol();
 

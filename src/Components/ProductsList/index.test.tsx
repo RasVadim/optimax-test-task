@@ -2,10 +2,10 @@ import { Provider } from "react-redux";
 import createMockStore from "redux-mock-store";
 import { render, screen } from "@testing-library/react";
 
-import ProductList from "./index";
 import { cartState } from "../../Store/Reducers/cart";
 import { productsState } from "../../Store/Reducers/products";
 import { reducer as form } from "redux-form";
+import ProductList from "./index";
 
 const mockStore = createMockStore([]);
 

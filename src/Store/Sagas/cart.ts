@@ -1,20 +1,21 @@
-import { put, takeLatest, all, call, StrictEffect } from "redux-saga/effects";
-import {
-  actionTypes,
-  fetchCart,
-  setCartLoading,
-  setCart,
-  changeQuantityLoading,
-  deleteFromCartLoading,
-  addToCartLoading,
-} from "../Actions/actions";
+import { call, put, StrictEffect, takeLatest } from "redux-saga/effects";
 import { AxiosResponse } from "axios";
-import api from "../../utils/api";
+
 import {
   AddToCartAction,
   ChangeQuantityAction,
   DeleteFromCartAction,
 } from "../interfaces";
+import {
+  actionTypes,
+  addToCartLoading,
+  changeQuantityLoading,
+  deleteFromCartLoading,
+  fetchCart,
+  setCart,
+  setCartLoading,
+} from "../Actions/actions";
+import api from "../../utils/api";
 
 //workers
 function* getCart() {

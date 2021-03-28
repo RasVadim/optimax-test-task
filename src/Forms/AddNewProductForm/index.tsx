@@ -1,10 +1,6 @@
 import React, { FC } from "react";
-import { Field, reduxForm, InjectedFormProps, Normalizer } from "redux-form";
+import { Field, InjectedFormProps, reduxForm } from "redux-form";
 
-import Input from "../../Components/Input";
-import Button from "../../Components/Button";
-
-import s from "./AddNewProductForm.module.css";
 import { Product } from "../../Store/interfaces";
 import {
   maxLength,
@@ -15,6 +11,11 @@ import {
   required,
   url,
 } from "../validators";
+
+import Input from "../../Components/Input";
+import Button from "../../Components/Button";
+
+import s from "./AddNewProductForm.module.css";
 
 interface IProps {
   loading?: boolean;

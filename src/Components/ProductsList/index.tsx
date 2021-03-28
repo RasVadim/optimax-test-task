@@ -8,11 +8,11 @@ import s from "./ProductsList.module.css";
 
 interface IProps {
   products?: Array<Product | CartItem>;
-  inCart?: boolean;
   title?: string;
+  inCart?: boolean;
+  loading?: boolean;
   fontSize?: number | string;
   onButtonClick?: (e: CartItem | number) => void;
-  loading?: boolean;
 }
 
 const ProductsList: FC<IProps> = ({

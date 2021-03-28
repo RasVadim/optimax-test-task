@@ -37,17 +37,16 @@ const ProductCard: FC<IProps> = ({
   const {
     id,
     title = "",
+    description = "",
     price,
     img = "",
     quantity,
-    description = "",
   } = product;
 
   const dispatch = useDispatch();
   const { loading } = useSelector(getCartState);
   const isCurrentProduct = useSelector(getCurrentProduct) === id;
   const isAlreadyInCart = useSelector(checkInCartProduct(id));
-
   const count = useSelector(getCounterValueById(String(id)));
 
   const debounceChangeQuantity = useCallback(
@@ -106,6 +105,7 @@ const ProductCard: FC<IProps> = ({
         <div className={s.title}> {title} </div>
         <div className={s.description}> {description} </div>
       </div>
+
       <div className={s.buttons}>
         {inCart ? (
           <Button
@@ -126,6 +126,7 @@ const ProductCard: FC<IProps> = ({
           />
         )}
       </div>
+
       <div className={s.price}>
         ${price}
         {inCart && (

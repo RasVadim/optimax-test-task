@@ -1,16 +1,17 @@
 import React, { FC, memo } from "react";
 import clsx from "clsx";
 
-import s from "./Button.module.css";
 import Preloader from "../Preloader";
+
+import s from "./Button.module.css";
 
 interface IProps {
   isForm?: boolean;
   txtBtn?: string;
-  onClick?: (e: any) => void;
   loading?: boolean;
   disabled?: boolean;
   small?: boolean;
+  onClick?: (e: any) => void;
   color?: "red" | "green";
   width?: number | "auto";
   height?: number | "auto";
@@ -19,11 +20,11 @@ interface IProps {
 
 const Button: FC<IProps> = ({
   onClick,
-  txtBtn = "",
   isForm = false,
   loading = false,
   disabled = false,
   small = false,
+  txtBtn = "",
   customClassName = "",
   color = "",
   children,

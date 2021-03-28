@@ -50,7 +50,7 @@ export interface CartItem {
   quantity: number;
 }
 
-// ReducerActions
+// Reducer Actions
 export interface SetProductsAction {
   type: actionTypes.SET_PRODUCT_lIST;
   payload: Product[];
@@ -101,7 +101,7 @@ export interface TotalSumLoadingAction {
   payload: boolean;
 }
 
-// SagaActions
+// Saga Actions
 export interface FetchProductsAction {
   type: actionTypes.FETCH_PRODUCT_lIST;
 }

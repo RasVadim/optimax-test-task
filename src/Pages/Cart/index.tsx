@@ -21,7 +21,6 @@ import ProductsList from "../../Components/ProductsList";
 import Preloader from "../../Components/Preloader";
 
 import s from "./Cart.module.css";
-import ProductCounter from "../../Components/ProductCounter";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -74,6 +73,7 @@ const ShoppingCart = () => {
           )}
         </div>
       </div>
+
       <AddNewProductForm
         onSubmit={onAddNewProduct}
         loading={loading.addProduct}

@@ -1,4 +1,4 @@
-import { FormErrors, Normalizer, Validator } from "redux-form";
+import { Normalizer, Validator } from "redux-form";
 
 // Validators
 export const required: Validator = (value) => (value ? undefined : "Required");
@@ -18,8 +18,5 @@ export const url: Validator = (value) =>
     : undefined;
 
 // Normalizers
-export const lessThan = (val: number): Normalizer => (
-  value,
-  previousValue,
-  allValues
-) => (parseFloat(value) < val ? value : previousValue);
+export const lessThan = (val: number): Normalizer => (value, previousValue) =>
+  parseFloat(value) < val ? value : previousValue;

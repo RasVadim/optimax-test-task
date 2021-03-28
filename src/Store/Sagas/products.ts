@@ -1,4 +1,7 @@
 import { call, put, StrictEffect, takeLatest } from "redux-saga/effects";
+import { AxiosResponse } from "axios";
+
+import { AddNewProductAction } from "../interfaces";
 import {
   actionTypes,
   addNewProductLoading,
@@ -6,9 +9,7 @@ import {
   setProductList,
   setProductLoading,
 } from "../Actions/actions";
-import { AxiosResponse } from "axios";
 import api from "../../utils/api";
-import { AddNewProductAction } from "../interfaces";
 
 //workers
 function* getProductList() {

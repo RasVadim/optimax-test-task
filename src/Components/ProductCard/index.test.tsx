@@ -1,12 +1,12 @@
 import { Provider } from "react-redux";
 import createMockStore from "redux-mock-store";
 import { render, fireEvent, screen } from "@testing-library/react";
-import * as actions from "../../Store/Actions/actions";
 
-import ProductCard from "./index";
+import * as actions from "../../Store/Actions/actions";
 import { cartState } from "../../Store/Reducers/cart";
 import { productsState } from "../../Store/Reducers/products";
 import { reducer as form } from "redux-form";
+import ProductCard from "./index";
 
 jest.mock("../../Store/Actions/actions");
 

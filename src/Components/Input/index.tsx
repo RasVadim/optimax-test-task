@@ -1,8 +1,8 @@
 import React, { FC } from "react";
+import { WrappedFieldProps } from "redux-form";
 import clsx from "clsx";
 
 import s from "./Input.module.css";
-import { WrappedFieldProps } from "redux-form";
 
 interface IProps {
   label?: string;

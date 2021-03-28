@@ -6,5 +6,13 @@
     "price": 470,
     "img": "https://img.mvideo.ru/Pdb/30054282b.jpg",
     "quantity": 1
+  },
+  {
+    "id": 1,
+    "title": "Iphone 8",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem I",
+    "price": 620,
+    "img": "https://img.mvideo.ru/Pdb/30030157b.jpg",
+    "quantity": 2
   }
 ]
